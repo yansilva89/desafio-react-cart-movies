@@ -21,10 +21,10 @@ const AddCart = styled.button`
   }
 `
 
-export default function BtnCard() {
+export default function BtnCard({ onClick }) {
   return (
     <>
-      <AddCart>
+      <AddCart onClick={onClick}>
         adicionar ao carrinho
         <div className="icon-text">
           <span></span>

@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 import styled from 'styled-components'
 import { SvgIcon } from '../icons/ShopIcon'
 
@@ -25,12 +27,14 @@ const CartIcon = styled.div`
 `
 
 export default function CartInfo() {
+  const itemsAmount = useSelector((state: RootState) => state.cartState.items.length)
+
   return (
     <>
       <CartBox>
         <CartData>
           <h3>Meu Carrinho</h3>
-          <p>0 itens</p>
+          <p>{itemsAmount} { itemsAmount > 1 || itemsAmount === 0 ? 'itens' : 'item' }</p>
         </CartData>
         <CartIcon>
           <SvgIcon />

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface CartSliceDto {
   id?: string,
@@ -19,12 +19,12 @@ export const slice = createSlice({
   name: 'CartAdd',
   initialState: cartSlice,
   reducers: {
-    changeCartAdd(state, { payload }) {
-      return { ...state, CartSlice: payload }
+    cartAdd: (state, action: PayloadAction<CartSliceDto>) => {
+      state.items.push(action.payload)
     }
   }
 })
 
-export const { changeCartAdd } = slice.actions
+export const { cartAdd } = slice.actions
 
 export default slice.reducer

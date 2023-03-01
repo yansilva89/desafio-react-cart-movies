@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux"
 import styled from "styled-components"
+import { cartAdd } from "../../store/slices/cartSlice"
 import BtnCard from "../buttons/BtnCard"
 
 interface Props {
@@ -40,19 +42,25 @@ const ImgBox = styled.div`
   }
 `
 
-export default function CardItem({ title, price, image, id }: Props) {
+export default function CardItem(props: Props) {
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(cartAdd(props))
+  }
+
   return (
     <>
       <CardIn>
         <ImgBox>
           <img 
-            src={image} 
-            alt={title} 
+            src={props.image} 
+            alt={props.title} 
           />
         </ImgBox>
-        <p>{title}</p>
-        <h3>R$ {price}</h3>
-        <BtnCard />
+        <p>{props.title}</p>
+        <h3>R$ {props.price}</h3>
+        <BtnCard onClick={() => handleClick()} />
       </CardIn>
     </>
   )
