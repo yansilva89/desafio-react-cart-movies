@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import styled from "styled-components"
 import { cartAdd } from "../../store/slices/cartSlice"
@@ -44,9 +45,11 @@ const ImgBox = styled.div`
 
 export default function CardItem(props: Props) {
   const dispatch = useDispatch()
+  const [btnColorItem, setBtnColorItem] = useState(false)
 
   const handleClick = () => {
     dispatch(cartAdd(props))
+    setBtnColorItem(true)
   }
 
   return (
@@ -60,7 +63,7 @@ export default function CardItem(props: Props) {
         </ImgBox>
         <p>{props.title}</p>
         <h3>R$ {props.price}</h3>
-        <BtnCard onClick={() => handleClick()} />
+        <BtnCard onClick={() => handleClick()} changeColorBtn={btnColorItem} />
       </CardIn>
     </>
   )

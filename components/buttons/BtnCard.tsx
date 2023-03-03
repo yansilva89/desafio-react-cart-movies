@@ -1,13 +1,17 @@
 import styled from "styled-components"
 
-const AddCart = styled.button`
+interface AddCartProps {
+  changeColor: boolean
+}
+
+const AddCart = styled.button<AddCartProps>`
   width: 100%;
   height: 40px;
   padding: 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #009EDD;
+  background-color: ${({ changeColor }) => changeColor ? '#039B00' : '#009EDD'};
   color: ${({ theme }) => theme.colors.secondary};
   border: 0;
   border-radius: 4px;
@@ -21,11 +25,11 @@ const AddCart = styled.button`
   }
 `
 
-export default function BtnCard({ onClick }) {
+export default function BtnCard({ onClick, changeColorBtn }) {
   return (
     <>
-      <AddCart onClick={onClick}>
-        adicionar ao carrinho
+      <AddCart changeColor={changeColorBtn} onClick={onClick}>
+        {changeColorBtn ? 'item adicionado' : 'adicionar ao carrinho'}
         <div className="icon-text">
           <span></span>
         </div>
