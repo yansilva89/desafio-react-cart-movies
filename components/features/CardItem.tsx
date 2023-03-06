@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 import styled from "styled-components"
-import { cartAdd } from "../../store/slices/cartSlice"
+import { cartAdd, cartRemove } from "../../store/slices/cartSlice"
 import BtnCard from "../buttons/BtnCard"
 
 interface Props {
@@ -46,10 +48,16 @@ const ImgBox = styled.div`
 export default function CardItem(props: Props) {
   const dispatch = useDispatch()
   const [btnColorItem, setBtnColorItem] = useState(false)
+  const isCardInList = useSelector((state: RootState) => state.cartState.items.some(item => item.id === props.id))
 
   const handleClick = () => {
-    dispatch(cartAdd(props))
-    setBtnColorItem(true)
+    if (isCardInList) {
+      dispatch(cartRemove(props))
+      setBtnColorItem(false)
+    } else {
+      dispatch(cartAdd(props))
+      setBtnColorItem(true)
+    }
   }
 
   return (

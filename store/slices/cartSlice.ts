@@ -21,10 +21,14 @@ export const slice = createSlice({
   reducers: {
     cartAdd: (state, action: PayloadAction<CartSliceDto>) => {
       state.items.push(action.payload)
+    },
+    cartRemove: (state, action: PayloadAction<CartSliceDto>) => {
+      const elemIndex = state.items.findIndex(item => item.id === action.payload.id)
+      state.items.splice(elemIndex, 1)
     }
   }
 })
 
-export const { cartAdd } = slice.actions
+export const { cartAdd, cartRemove } = slice.actions
 
 export default slice.reducer

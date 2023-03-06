@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import { CartIcon } from "../icons/CartIconSvg"
 interface AddCartProps {
   changeColor: boolean
 }
@@ -19,20 +19,33 @@ const AddCart = styled.button<AddCartProps>`
   font-weight: 700;
   margin-top: 8px;
   cursor: pointer;
+  p {
+    color: #fff !important;
+  }
   .icon-text {
     span {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      p {
+        color: #fff;
+      }
     }
   }
 `
 
 export default function BtnCard({ onClick, changeColorBtn }) {
+
   return (
     <>
       <AddCart changeColor={changeColorBtn} onClick={onClick}>
-        {changeColorBtn ? 'item adicionado' : 'adicionar ao carrinho'}
         <div className="icon-text">
-          <span></span>
+          <span>
+            <CartIcon />
+            <p>{ changeColorBtn ? '1' : '0' }</p>
+          </span>
         </div>
+        <p>{changeColorBtn ? 'item adicionado' : 'adicionar ao carrinho'}</p>
       </AddCart>
     </>
   )
