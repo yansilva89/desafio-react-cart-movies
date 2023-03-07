@@ -23,16 +23,16 @@ const ProductStyle = styled.div`
   }
 `
 
-export default function ProductPrice() {
+export default function ProductPrice({ image, name, price }) {
   return (
     <ProductStyle>
       <img 
-        src="https://wefit-react-web-test.s3.amazonaws.com/viuva-negra.png" 
-        alt="Viúva Negra" 
+        src={image} 
+        alt={name}
       />
       <div className="block-info">
-        <p>Homem Aranha</p>
-        <h3>R$ 29,99</h3>
+        <p>{name}</p>
+        <h3>R$ {price}</h3>
       </div>
     </ProductStyle>
   )

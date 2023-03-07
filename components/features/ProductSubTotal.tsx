@@ -5,10 +5,10 @@ const SubTotal = styled.div`
   color: #2F2E41;
 `
 
-export default function ProductSubTotal() {
+export default function ProductSubTotal({ subtotal }) {
   return (
     <>
-      <SubTotal><h3>R$ 29,99</h3></SubTotal>
+      <SubTotal><h3>R$ {subtotal}</h3></SubTotal>
     </>
   )
 }
