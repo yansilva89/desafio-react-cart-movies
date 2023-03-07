@@ -7,6 +7,7 @@ const Container = styled.div`
   width: 960px;
   margin: 0 auto;
   min-height: 100vh;
+  position: relative;
 `
 
 const Header = styled.div`
@@ -19,6 +20,7 @@ const Header = styled.div`
   align-items: center;
   height: 74px;
   padding: 0 10px;
+  z-index: 1000;
 `
 
 const MainList = styled.main`
