@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
+  position: relative;
   padding: 0 0.5rem;
   display: flex;
   flex-flow: column nowrap;
   width: 960px;
   margin: 0 auto;
   min-height: 100vh;
-  position: relative;
 `
 
 const Header = styled.div`
