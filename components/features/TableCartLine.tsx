@@ -1,6 +1,6 @@
+import { useSelector } from 'react-redux';
 import styled from "styled-components";
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
+import { RootState } from '../../store';
 import ProductNumber from "./ProductNumber";
 import ProductPrice from "./ProductPrice";
 import ProductSubTotal from "./ProductSubTotal";
@@ -23,8 +23,8 @@ export default function LineTableCart() {
           <ProductPrice image={item.image} name={item.title} price={item.price} />
           <ProductNumber />
           <ProductSubTotal subtotal={item.price} />
-          <TrashCol />
-      </LineTable>
+          <TrashCol item={item} />
+        </LineTable>
       ))}
     </>
   )

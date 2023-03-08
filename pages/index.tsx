@@ -18,11 +18,13 @@ export default function Home() {
 
   return (
     <>
+      {/* Float Btn */}
       <BtnRouter onClick={() => goToCart()}>
         <CartIcon />
         Ver Carrinho
         <IconRight />
       </BtnRouter>
+      {/* Container */}
       <Container>
         <Header>
           <h2>WeMovies</h2>

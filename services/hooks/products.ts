@@ -15,7 +15,7 @@ export const useProducts = () => {
       }
       getProducts()
       setLoading(false)
-    }, 1000);
+    }, 1500);
   }, [])
 
   return { products, loading }

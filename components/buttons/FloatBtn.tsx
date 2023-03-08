@@ -13,7 +13,7 @@ const FloatBtn = styled.button`
   align-items: center;
   background-color: #29ab26;
   color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid #2f2e41a3;
+  border: 1px solid #2f2e41;
   border-radius: 50px;
   text-transform: uppercase;
   font-size: 12px;
