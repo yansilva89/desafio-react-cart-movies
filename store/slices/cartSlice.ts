@@ -4,15 +4,18 @@ interface CartSliceDto {
   id?: string,
   title?: string,
   price?: number,
-  image?: string
+  image?: string,
+  amount?: number 
 } 
 
 interface InitialState {
-  items: CartSliceDto[]
+  items: CartSliceDto[],
+  notification: boolean
 }
 
 const cartSlice: InitialState = {
-  items: []
+  items: [],
+  notification: false
 }
 
 export const slice = createSlice({
@@ -25,10 +28,21 @@ export const slice = createSlice({
     cartRemove: (state, action: PayloadAction<CartSliceDto>) => {
       const elemIndex = state.items.findIndex(item => item.id === action.payload.id)
       state.items.splice(elemIndex, 1)
+    },
+    cartNotify: (state, action: PayloadAction<boolean>) => {
+      state.notification = action.payload
+    },
+    itemIncrement: (state, action: PayloadAction<string>) => {
+      const elemIndex = state.items.findIndex(item => item.id === action.payload)
+      state.items[elemIndex].amount += 1
+    },
+    itemDecrement: (state, action: PayloadAction<string>) => {
+      const elemIndex = state.items.findIndex(item => item.id === action.payload)
+      state.items[elemIndex].amount -= 1
     }
   }
 })
 
-export const { cartAdd, cartRemove } = slice.actions
+export const { cartAdd, cartRemove, cartNotify, itemIncrement, itemDecrement } = slice.actions
 
 export default slice.reducer

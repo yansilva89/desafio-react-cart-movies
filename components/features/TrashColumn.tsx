@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux"
-import { cartRemove } from "../../store/slices/cartSlice"
+import { cartRemove, cartNotify } from "../../store/slices/cartSlice"
 import { TrashIconSvg } from "../icons/TrashIcon";
 
 const TrashBlock = styled.div`
@@ -14,8 +14,11 @@ export default function TrashCol({ item }) {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    // console.log('##ITEMCLICKED', item)
     dispatch(cartRemove(item))
+    dispatch(cartNotify(true))
+    setTimeout(() => {
+      dispatch(cartNotify(false))
+    }, 2000)
   }
   return (
     <TrashBlock onClick={() => handleClick()}>

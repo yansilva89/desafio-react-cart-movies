@@ -24,6 +24,7 @@ export default function Home() {
         Ver Carrinho
         <IconRight />
       </BtnRouter>
+      {/* Notification */}
       {/* Container */}
       <Container>
         <Header>

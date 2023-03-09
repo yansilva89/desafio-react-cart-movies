@@ -19,10 +19,10 @@ export default function LineTableCart() {
   return (
     <>
       {itemsLine.map((item) => (
-        <LineTable>
+        <LineTable key={item.id} >
           <ProductPrice image={item.image} name={item.title} price={item.price} />
-          <ProductNumber />
-          <ProductSubTotal subtotal={item.price} />
+          <ProductNumber id={item.id} />
+          <ProductSubTotal id={item.id} />
           <TrashCol item={item} />
         </LineTable>
       ))}

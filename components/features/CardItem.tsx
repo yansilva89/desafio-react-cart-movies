@@ -2,8 +2,9 @@ import { useDispatch } from "react-redux"
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import styled from "styled-components"
-import { cartAdd, cartRemove } from "../../store/slices/cartSlice"
+import { cartAdd, cartNotify, cartRemove } from "../../store/slices/cartSlice"
 import BtnCard from "../buttons/BtnCard"
+import Notify from "../notify/Notification"
 
 interface Props {
   id?: string,
@@ -47,17 +48,23 @@ const ImgBox = styled.div`
 export default function CardItem(props: Props) {
   const dispatch = useDispatch()
   const isCardInList = useSelector((state: RootState) => state.cartState.items.some(item => item.id === props.id))
+  const showNotification = useSelector((state: RootState) => state.cartState.notification)
 
   const handleClick = () => {
     if (isCardInList) {
       dispatch(cartRemove(props))
+      dispatch(cartNotify(true))
+      setTimeout(() => {
+        dispatch(cartNotify(false))
+      }, 2000)
     } else {
-      dispatch(cartAdd(props))
+      dispatch(cartAdd({...props, amount: 1})) // Inicializar quant. mínima
     }
   }
 
   return (
     <>
+      { showNotification && (<Notify>Item Removido</Notify>) }
       <CardIn>
         <ImgBox>
           <img 

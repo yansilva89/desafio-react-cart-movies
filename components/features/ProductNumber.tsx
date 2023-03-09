@@ -1,6 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Decrement } from "../icons/DecrementIcon";
 import { Increment } from "../icons/IncrementIcon";
+import { itemIncrement, itemDecrement } from "../../store/slices/cartSlice"
+import { RootState } from "../../store";
 
 const ProductNumberStl = styled.div`
   width: 25%;
@@ -18,14 +21,30 @@ const NumberBox = styled.div`
   border-radius: 4px;
 `
 
-export default function ProductNumber() {
+interface Props {
+  id?: string,
+}
+
+export default function ProductNumber({ id }: Props) {
+  const itemAmount = useSelector((state: RootState) => state.cartState.items.find(item => item.id === id).amount) // Quant. do Item
+  const dispatch = useDispatch()
+
+  const toIncrement = () => {
+    dispatch(itemIncrement(id))
+  }
+  const toDecrement = () => {
+    if (itemAmount > 1) {
+      dispatch(itemDecrement(id))
+    }
+  }
+
   return (
     <ProductNumberStl>
-      <Decrement />
+      <Decrement changeColor={itemAmount === 1} onClick={toDecrement} />
       <NumberBox>
-        <p>0</p>
+        <p>{itemAmount}</p>
       </NumberBox>
-      <Increment />
+      <Increment onClick={toIncrement} />
     </ProductNumberStl>
   )
 }
