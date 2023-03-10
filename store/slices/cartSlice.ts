@@ -39,10 +39,13 @@ export const slice = createSlice({
     itemDecrement: (state, action: PayloadAction<string>) => {
       const elemIndex = state.items.findIndex(item => item.id === action.payload)
       state.items[elemIndex].amount -= 1
+    },
+    resetState: () => {
+      return cartSlice
     }
   }
 })
 
-export const { cartAdd, cartRemove, cartNotify, itemIncrement, itemDecrement } = slice.actions
+export const { cartAdd, cartRemove, cartNotify, itemIncrement, itemDecrement, resetState } = slice.actions
 
 export default slice.reducer

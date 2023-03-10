@@ -5,7 +5,7 @@ const FloatBtn = styled.button`
   right: 2rem;
   bottom: 2rem;
   z-index: 1001;
-  width: 170px;
+  width: 180px;
   height: 54px;
   padding: 1rem;
   display: flex;
@@ -13,7 +13,7 @@ const FloatBtn = styled.button`
   align-items: center;
   background-color: #29ab26;
   color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid #2f2e41;
+  border: 0;
   border-radius: 50px;
   text-transform: uppercase;
   font-size: 12px;

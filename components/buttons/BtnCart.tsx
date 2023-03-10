@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const BtnCart = styled.button`
-  min-width: 120px;
+  min-width: 180px;
   height: 40px;
   padding: 0 1rem;
   display: flex;
@@ -13,8 +13,11 @@ const BtnCart = styled.button`
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: 700;
-  margin-top: 8px;
   cursor: pointer;
+  transition: background-color .5s ease-out;
+  &:hover, &:active, &:focus {
+    background-color:#17769a;
+  }
 `
 
 export default BtnCart

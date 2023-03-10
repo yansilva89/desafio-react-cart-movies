@@ -19,6 +19,10 @@ const AddCart = styled.button<AddCartProps>`
   font-weight: 700;
   margin-top: 8px;
   cursor: pointer;
+  transition: background-color .5s ease-out;
+  &:hover, &:active {
+    background-color: ${({ changeColor }) => changeColor ? '#026d00' : '#17769a'};
+  }
   p {
     color: #fff !important;
   }
