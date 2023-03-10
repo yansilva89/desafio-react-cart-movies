@@ -8,6 +8,18 @@ const TrashBlock = styled.div`
   display: flex;
   justify-content: end;
   cursor: pointer;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: background-color .3s ease-in-out;
+    &:hover {
+      background-color: #c0eeff;
+    }
+  }
 `
 
 export default function TrashCol({ item }) {
@@ -22,7 +34,9 @@ export default function TrashCol({ item }) {
   }
   return (
     <TrashBlock onClick={() => handleClick()}>
-      <TrashIconSvg />
+      <div>
+        <TrashIconSvg />
+      </div>
     </TrashBlock>
   )
 }
