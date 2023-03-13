@@ -21,6 +21,12 @@ const Header = styled.div`
   height: 74px;
   padding: 0 10px;
   z-index: 1000;
+  @media (max-width: 500px) {
+    height: 130px;
+    h2 {
+      font-size: 3rem;
+    }
+  }
 `
 
 const MainList = styled.main`
@@ -31,6 +37,12 @@ const MainList = styled.main`
   gap: 1rem;
   border-radius: 4px;
   margin-top: 88px;
+  @media (max-width: 500px) {
+    margin-top: 130px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+  }
 `
 
 const MainContent = styled.main`

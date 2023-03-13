@@ -21,7 +21,7 @@ export default function Home() {
       {/* Float Btn */}
       <BtnRouter onClick={() => goToCart()}>
         <CartIcon />
-        Ver Carrinho
+        <p>Ver Carrinho</p>
         <IconRight />
       </BtnRouter>
       {/* Notification */}

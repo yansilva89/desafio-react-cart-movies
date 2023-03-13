@@ -36,6 +36,16 @@ const AddCart = styled.button<AddCartProps>`
       }
     }
   }
+
+  @media (max-width: 500px) {
+    height: 84px;
+    p {
+      font-size: 24px !important;
+    }
+    .icon-text {
+      span {}
+    }
+  }
 `
 
 export default function BtnCard({ onClick, changeColorBtn }) {

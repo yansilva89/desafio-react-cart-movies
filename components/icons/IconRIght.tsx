@@ -9,6 +9,9 @@ const IconRight = styled(RightIcon)`
   height: 18px;
   fill: ${({ theme }) => theme.colors.secondary};
   cursor: pointer;
+  @media (max-width: 500px) {
+    display: none;
+  }
 `
 function RightIcon({ className }: RightIconProps) {
   return (

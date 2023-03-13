@@ -8,6 +8,10 @@ const SvgIcon = styled(ShopIcon)`
   width: 30px;
   height: 26px;
   fill: ${({ theme }) => theme.colors.secondary};
+  @media (max-width: 500px) {
+    width: 70px;
+    height: 70px;
+  }
 `
 function ShopIcon({ className }: ShopIconProps) {
   return (

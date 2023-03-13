@@ -13,6 +13,20 @@ const VoidCard = styled.div`
   h2 {
     margin-bottom: 32px;
   }
+  @media (min-width: 501px) {
+    br {
+      display: none;
+    }
+  }
+  @media (max-width: 500px) {
+    text-align: center;
+    h2 {
+      font-size: 56px;
+    }
+    br {
+      display: block;
+    }
+  }
 `
 export default function VoidCart() {
   const router = useRouter()
@@ -24,7 +38,7 @@ export default function VoidCart() {
   return (
     <>
     <VoidCard>
-      <h2>Parece que não há nada por aqui :(</h2>
+      <h2>Parece que não <br></br> há nada por aqui :(</h2>
       <VoidIconSvg />
       <BtnCart onClick={() => goToHome()}>voltar</BtnCart>
     </VoidCard>

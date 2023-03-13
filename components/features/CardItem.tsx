@@ -34,6 +34,14 @@ const CardIn = styled.div`
   h3 {
     font-size: 16px;
   }
+  @media (max-width: 500px) {
+    p {
+    font-size: 32px;
+    }
+    h3 {
+      font-size: 44px;
+    }
+  }
 `
 
 const ImgBox = styled.div`

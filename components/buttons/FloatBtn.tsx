@@ -23,6 +23,19 @@ const FloatBtn = styled.button`
   &:hover, &:active, &:focus {
     background-color:#17769a;
   }
+  @media (max-width: 500px) {
+    width: 200px;
+    height: 100px;
+    border-radius: 80px;
+    right: 3rem;
+    border: 1px solid #2f2e41;
+    p {
+      font-size: 24px;
+    }
+    svg {
+      display: none;
+    }
+  }
 `
 
 export default FloatBtn

@@ -18,6 +18,10 @@ const BtnCart = styled.button`
   &:hover, &:active, &:focus {
     background-color:#17769a;
   }
+  @media (max-width: 500px) {
+    height: 84px;
+    font-size: 24px;
+  }
 `
 
 export default BtnCart
