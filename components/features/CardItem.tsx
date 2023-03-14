@@ -72,7 +72,7 @@ export default function CardItem(props: Props) {
 
   return (
     <>
-      { showNotification && (<Notify>Item Removido</Notify>) }
+      { showNotification && (<Notify><p>Item Removido</p></Notify>) }
       <CardIn>
         <ImgBox>
           <img 

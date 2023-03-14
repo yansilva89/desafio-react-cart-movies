@@ -1,8 +1,9 @@
 import { useRouter } from "next/router"
+import { useDispatch } from "react-redux"
 import styled from "styled-components"
 import BtnCart from "../buttons/BtnCart"
 import { FinalIconSvg } from "../icons/FinalIcon"
-import { VoidIconSvg } from "../icons/VoidIcon"
+import { resetState } from "../../store/slices/cartSlice"
 
 const Success = styled.div`
   display: flex;
@@ -26,10 +27,12 @@ const Success = styled.div`
   }
 `
 export default function SuccessShop() {
+  const dispatch = useDispatch()
   const router = useRouter()
 
   const goToHome = () => {
     router.push('/')
+    dispatch(resetState())
   }
 
   return (

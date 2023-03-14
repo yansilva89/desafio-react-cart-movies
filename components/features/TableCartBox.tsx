@@ -16,7 +16,7 @@ export default function TableCart() {
 
   return (
     <>
-      { showNotification && (<Notify>Item Removido</Notify>) }
+      { showNotification && (<Notify><p>Item Removido</p></Notify>) }
       <TableCartStyle>
         <ColumnsTitles />
         <LineTableCart />

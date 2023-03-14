@@ -9,11 +9,16 @@ interface DecrementIconProps {
 const Decrement = styled(DecrementIcon)`
   width: 18px;
   height: 18px;
+  @media (max-width: 500px) {
+    width: 56px;
+    height: 56px;
+  }
 `
 function DecrementIcon({ className, onClick, changeColor }: DecrementIconProps) {
   return (
     <svg 
     className={ className } 
+    viewBox="0 0 18 18"
     onClick={onClick} 
     fill={changeColor ? '#999' : '#009EDD'} 
     style={changeColor ? {cursor: 'default'} : {cursor: 'pointer'}}

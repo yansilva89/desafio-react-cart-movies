@@ -19,8 +19,9 @@ const BtnCart = styled.button`
     background-color:#17769a;
   }
   @media (max-width: 500px) {
+    width: 100%;
     height: 84px;
-    font-size: 24px;
+    font-size: 28px;
   }
 `
 

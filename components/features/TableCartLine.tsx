@@ -10,7 +10,12 @@ const LineTable = styled.div`
   width: '100%';
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 3rem;
+  }
 `
 
 export default function LineTableCart() {

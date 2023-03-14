@@ -20,6 +20,11 @@ const TrashBlock = styled.div`
       background-color: #c0eeff;
     }
   }
+  @media (max-width: 500px) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 `
 
 export default function TrashCol({ item }) {

@@ -20,6 +20,9 @@ const TitlesBox = styled.div`
   .trash {
     width: 10%;
   }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `
 
 export default function ColumnsTitles() {

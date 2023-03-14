@@ -21,6 +21,24 @@ const ProductStyle = styled.div`
       font-size: 16px;
     }
   }
+  @media (max-width: 500px) {
+    width: 100%;
+    align-items: flex-start;
+    img {
+      width: 25%;
+    }
+    .block-info {
+      width: 75%;
+      flex-direction: row;
+      p {
+        font-size: 40px;
+        margin-right: 2.5rem;
+      }
+      h3 {
+        font-size: 40px;
+      }
+    }
+  }
 `
 
 export default function ProductPrice({ image, name, price }) {

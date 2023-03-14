@@ -9,6 +9,12 @@ const ProductNumberStl = styled.div`
   width: 25%;
   display: flex;
   align-items: center;
+  @media (max-width: 500px) {
+    width: 50%;
+    position: absolute;
+    bottom: 3rem;
+    margin-left: 90px;
+  }
 `
 
 const NumberBox = styled.div`
@@ -19,6 +25,14 @@ const NumberBox = styled.div`
   font-size: 14px;
   border: 1px solid #D9D9D9;
   border-radius: 4px;
+  @media (max-width: 500px) {
+    width: 200px;
+    height: 80px;
+    p {
+      font-size: 40px;
+      font-weight: 700;
+    }
+  }
 `
 
 interface Props {

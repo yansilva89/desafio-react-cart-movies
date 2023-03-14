@@ -1,8 +1,7 @@
 import { useRouter } from "next/router"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import styled from "styled-components"
 import { RootState } from "../../store"
-import { resetState } from "../../store/slices/cartSlice"
 import BtnCart from "../buttons/BtnCart"
 import FloatBtn from "../buttons/FloatBtn"
 import { IconLeft } from "../icons/IconLeft"
@@ -28,6 +27,23 @@ const TableFooterBox = styled.div`
       font-size: 24px;
     }
   }
+  @media (max-width: 500px) {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    .box-total {
+      width: 100%;
+      justify-content: end;
+      margin-bottom: 2rem;
+      p {
+        font-size: 40px;
+        margin-right: 2rem;
+      }
+      h2 {
+        font-size: 48px;
+      }
+    }
+  }
 `
 export default function TableFooter() {
   const total = useSelector((state: RootState) => state.cartState.items.reduce((acc, current) => {
@@ -35,7 +51,6 @@ export default function TableFooter() {
     return acc + subtotal
   }, 0))
   const router = useRouter()
-  const dispatch = useDispatch()
 
   const goToHome = () => {
     router.push('/')
@@ -43,9 +58,6 @@ export default function TableFooter() {
 
   const goToFinal = () => {
     router.push('/compra-finalizada')
-    setTimeout(() => {
-      dispatch(resetState())
-    }, 100)
   }
 
   return (
@@ -53,12 +65,12 @@ export default function TableFooter() {
       {/* Float Btn */}
       <FloatBtn onClick={() => goToHome()}>
         <IconLeft />
-        Voltar para lista
+        <p>Voltar para lista</p>
       </FloatBtn>
       <BtnCart onClick={() => goToFinal()}>finalizar compra</BtnCart>
       <div className="box-total">
         <p>Total:</p>
-        <h2>R$ {total}</h2>
+        <h2>R$ {total.toFixed(2)}</h2>
       </div>
     </TableFooterBox>
   )

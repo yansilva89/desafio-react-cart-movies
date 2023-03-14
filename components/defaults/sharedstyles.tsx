@@ -38,10 +38,10 @@ const MainList = styled.main`
   border-radius: 4px;
   margin-top: 88px;
   @media (max-width: 500px) {
-    margin-top: 130px !important;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
-    margin: 1.5rem 1rem;
+    margin: 130px 1rem 1.5rem 1rem;
+    width: auto;
   }
 `
 
@@ -52,8 +52,8 @@ const MainContent = styled.main`
   background-color: #fff;
   margin-top: 88px;
   @media (max-width: 500px) {
-    margin-top: 130px;
-    padding: 1.5rem 1rem;
+    width: auto;
+    margin: 130px 1rem 1.5rem 1rem;
   }
 `
 
