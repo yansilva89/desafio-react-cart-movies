@@ -21,6 +21,7 @@ const VoidCard = styled.div`
   @media (max-width: 500px) {
     text-align: center;
     h2 {
+      margin-top: 64px;
       font-size: 56px;
     }
     br {

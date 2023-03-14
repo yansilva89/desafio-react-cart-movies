@@ -14,6 +14,16 @@ const Success = styled.div`
   h2 {
     margin-bottom: 32px;
   }
+  @media (max-width: 500px) {
+    text-align: center;
+    h2 {
+      margin-top: 64px;
+      font-size: 56px;
+    }
+    br {
+      display: block;
+    }
+  }
 `
 export default function SuccessShop() {
   const router = useRouter()
